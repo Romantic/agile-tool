@@ -1,0 +1,42 @@
+<h2>Agile Tool</h2>
+<div class="span-12">
+  <div class="form login-form">
+    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+      <fieldset>
+        <legend>Sign in</legend>
+        <p>Don't have an account? <%= link_to 'Sign up now!', new_user_registration_path %></p>
+        <p><%= f.text_field :email %></p>
+        <p><%= f.password_field :password %></p>
+        <p>
+          <% if devise_mapping.rememberable? %>
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me, "", :class => "checkbox-label" %>
+          <% end %>
+          <%= link_to "Sign in", "javascript:void(0);", {:class => "button sign-in", :id => "sign_in_button"} %>
+          <%= f.submit "Sign in", :class => "hidden-submit" %>
+        </p>
+      </fieldset>
+    <% end %>
+    <%= render :partial => "devise/shared/links" %>
+    <div class="clear"></div>
+  </div>
+</div>
+<div class="span-12 last">
+  <div class="quick-tour">
+    <h3>Quick Tour Video</h3>
+    <%= image_tag 'quick-tour.png', :alt => "Video tutorial will be placed here." %>
+  </div>
+</div>
+<script type="text/javascript">
+  //<![CDATA[
+    $(function() {
+      $('#user_email').watermark("Email");
+      $('#user_password').watermark("Password");
+
+      $('#sign_in_button').click(function () {
+        $('#user_submit').click();
+      });
+    });
+  //]]>
+</script>
+

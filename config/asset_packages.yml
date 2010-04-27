@@ -1,0 +1,22 @@
+javascripts:
+- base:
+  - jquery-1.4.2
+  - jquery.watermark
+  - jquery.qtip-1.0.0
+  - rails
+  - application
+stylesheets:
+- screen:
+  - blueprint/reset
+  - blueprint/typography
+  - blueprint/forms
+  - blueprint/grid
+  - blueprint/plugins/fancy-type
+  - screen
+- print:
+  - blueprint/print
+  - print
+- ie:
+  - blueprint/ie
+  - ie
+

@@ -1,0 +1,32 @@
+<div class="span-12">
+  <div class="form resend-confirmation-form">
+    <%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name)) do |f| %>
+      <fieldset>
+        <legend>Resend confirmation instructions</legend>
+
+        <p><%= f.label :email %></p>
+        <p><%= f.text_field :email %> <%= field_error :email %></p>
+
+          <%= link_to "Resend", "javascript:void(0);", :class => "button save", :id => "resend_button" %>
+          <%= link_to "Cancel", root_path, :class => "button cancel" %>
+        <p><%= f.submit "Resend", :class => "hidden-submit" %></p>
+      </fieldset>
+    <% end %>
+    <%= render :partial => "devise/shared/links" %>
+  </div>
+</div>
+<div class="span-12 last">
+</div>
+
+<script type="text/javascript">
+  //<![CDATA[
+    $(function() {
+      $("#resend_button").click(function () {
+        $("#user_submit").click();
+      });
+
+      $('.tooltip img').error_tool_tip();
+    });
+  //]]>
+</script>
+

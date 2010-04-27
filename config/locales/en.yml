@@ -1,0 +1,9 @@
+en:
+    application:
+        title: "Agile Tool"
+        copyright: "Roman Zaharenkov"
+    date:
+        formats:
+            short: "%d/%m/%Y"
+            date_picker: "%d/%m/%Y"
+

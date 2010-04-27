@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title><%= t("application.title") %> - <%= yield(:title)%></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <%= stylesheet_link_merged :screen, :media => "screen, projection" %>
+    <%= stylesheet_link_merged :print, :media => "print" %>
+    <!--[if lt IE 8]><%= stylesheet_link_merged :ie, :media => "screen, projection" %><![endif]-->
+    <%= javascript_include_merged :base %>
+    <%= yield(:head) %>
+  </head>
+  <body>
+    <div class="container">
+      <div id="wrapper">
+        <div id="header">
+          <div class="logo">
+            <a href="<%= root_url %>">
+              <span class="icon icon-agiletool"></span>
+              <span class="text"><%= t("application.title") %></span>
+            </a>
+          </div>
+          <%= yield(:header) %>
+          <%= render :partial => 'shared/user_menu' if user_signed_in? %>
+          <div class="clear"></div>
+        </div>
+        <div id="content">
+          <% if notice %>
+            <div class="notice"><%= notice %></div>
+          <% end %>
+          <% if alert %>
+            <div class="error"><%= alert %></div>
+          <% end %>
+          <%= yield %>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div id="footer">
+        <%= yield(:footer) %>
+        <div class="copyright">&copy; <%= Time.now.year %> <%= t("application.copyright") %></div>
+      </div>
+    </div>
+  </body>
+</html>
+

@@ -1,0 +1,38 @@
+<div class="notice">Please enter your email address below. You will receive a confirmation email. if you do not receive a confirmation email, please contact us at.</div>
+
+<div class="span-12">
+  <div class="form registration-form">
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+      <fieldset>
+        <legend>Sign up for Agile Tool</legend>
+
+        <p><%= f.label :email %></p>
+        <p><%= f.text_field :email %> <%= field_error :email %></p>
+
+        <p><%= f.label :password %></p>
+        <p><%= f.password_field :password %> <%= field_error :password %></p>
+
+        <p>
+          <%= link_to "Sign up", "javascript:void(0);", :class => "button save", :id => "sign_up_button" %>
+          <%= link_to "Cancel", root_path, :class => "button cancel" %>
+          <%= f.submit "Sign in", :class => "hidden-submit" %>
+        </p>
+      </fieldset>
+    <% end %>
+    <%= render :partial => "devise/shared/links" %>
+  </div>
+</div>
+<div class="span-12 last">
+</div>
+
+<script type="text/javascript">
+  //<![CDATA[
+    $(function() {
+      $("#sign_up_button").click(function () {
+        $("#user_submit").click();
+      });
+      $('.tooltip img').error_tool_tip();
+    });
+  //]]>
+</script>
+
