@@ -1,6 +1,7 @@
 log/*.log
 tmp/**/*
+doc/**/*
 *~
 config/database.yml
 db/*.sqlite3
-
+.yardoc

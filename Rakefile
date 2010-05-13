@@ -8,3 +8,8 @@ require 'rake/testtask'
 require 'rake/rdoctask'
 
 Rails::Application.load_tasks
+
+require 'yard'
+YARD::Rake::YardocTask.new(:yardoc) do |t|
+  t.files   = FileList['lib/**/*.rb'].exclude('lib/jeweler/templates/**/*.rb')
+end
