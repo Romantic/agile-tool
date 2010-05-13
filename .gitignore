@@ -1,5 +1,6 @@
 log/*.log
 tmp/**/*
+doc/*
 doc/**/*
 *~
 config/database.yml
