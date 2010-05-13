@@ -11,5 +11,5 @@ Rails::Application.load_tasks
 
 require 'yard'
 YARD::Rake::YardocTask.new(:yardoc) do |t|
-  t.files   = FileList['lib/**/*.rb'].exclude('lib/jeweler/templates/**/*.rb')
+  t.files = FileList['app/**/*.rb', 'lib/**/*.rb']
 end
